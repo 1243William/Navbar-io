@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Kanit&family=Montserrat:wght@300;500;600;700;800&family=Quicksand:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,400&family=Source+Sans+Pro:wght@200;400;600;700&display=swap');
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    text-decoration: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --color-primary: #5ED2EA;
+    --color-primary-variant: #0062f4;
+    --color-gradient: linear-gradient(var(--color-primary), var(--color-primary-variant));
+    --color-black: #000000;
+    --color-blue: #5ED2EA;
+    --color-footer: #103F69;
+    --color-gray: #4B4B4B;
+    --color-graylight: #f3f3f3;
+    --color-background: #dfdfdf;
+    --color-white: #FFFFFF;
+    --color-hover: #101b99;
+    --color-navlinks: #ddab06;
+    --color-nav-col: rgba(16, 63, 105, 1);
+    --color-semi-background: rgba(94, 210, 234, 1);
+    --color-hover: #7ac6f1;
+    --color-icon-col: rgb(43, 179, 206);
+
+
+    --container-width-lg: 80%;
+    --container-width-md: 92%;
+    --container-width-sm: 95%;
+
+    --transition1: 180ms ease all;
+    --transition2: all 400ms ease;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+}
+
+body {
+    background: var(--color-gradient);
+    height: 100vh;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+
+
+/*Nav bar*/
+nav {
+    background: var(--color-white);
+    width: 100vw;
+    height: 4rem;
+    display: grid;
+    place-items: center;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.nav__container {
+   width: var(--container-width-lg);
+   height: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.nav__toggle-btn {
+    display: none;
+}
+
+.nav__logo {
+    width: 4rem;
+    display: grid;
+    place-items: center;
+}
+
+.nav__logo img {
+    width: 100%;
+}
+
+.nav__links {
+    display: flex;
+    align-items: center;
+    gap: 4.5rem;
+    height: 100%;
+}
+
+.nav__links li {
+    height: 100%;
+}
+
+.nav__links li a {
+    color: var(--color-black);
+    font-weight: 500;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: color 400ms ease;
+    position: relative;
+}
+
+.nav__links li a:hover {
+    color: var(--color-primary);
+    border-bottom: 5px solid var(--color-primary);
+}
+
+.nav__links li .active:hover {
+    border-bottom: 0;
+}
+
+.nav__links li a.active::after {
+    content: '';
+    display: block;
+    background: var(--color-primary);
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+
+
+section {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+section h1 {
+     text-transform: uppercase;
+     color: var(--color-white);
+     font-size: 3rem;
+}
+
+/*Media queries medium & small devices*/
+@media screen and (max-width: 1024px) {
+    .nav__container {
+        width: var(--container-width-md);
+        position: relative;
+    }
+
+    .nav__links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        align-items: flex-start;
+        display: none;
+    }
+
+    .nav__links li {
+        width: 100%;
+        box-shadow: -2rem 4rem  4rem rgba(0, 0, 0, 0.2);
+    }
+
+    .nav__links li a {
+        background: var(--color-white);
+        height: 4rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 5rem 0  2.5rem;
+        border-top: 1px solid #b3d8e1;
+    }
+
+    .nav__links li a.active::after {
+        display: none;
+    }
+
+    .nav__links li a:hover {
+      border-bottom: none;
+    }
+
+    .nav__toggle-btn {
+        display: inline-block;
+        font-size: 2rem;
+        color: var(--color-black);
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    #nav__toggle-close {
+        display: none;
+    }
+
+    section h1 {
+        font-size: 2.2rem;
+    }
+
+    
+}
